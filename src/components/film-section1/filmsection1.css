@@ -27,3 +27,18 @@
     color: #fff;
     font-weight: 400;
 }
+
+@media screen and (max-width: 1080px) {
+    .film-section-movie-id{
+      font-size: 28px;
+    }
+  }
+
+  @media screen and (max-width: 734px) {
+    .film-section-movie{
+        flex-direction: column;
+        padding: 30px;
+        row-gap: 30px;
+      }
+  }
+  

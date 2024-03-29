@@ -87,3 +87,10 @@
 .overlay-body.active {
   display: block;
 }
+
+@media screen and (max-width: 734px) {
+  .App {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

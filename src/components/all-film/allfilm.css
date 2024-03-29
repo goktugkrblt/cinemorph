@@ -92,4 +92,10 @@
     border: none;
   }
 
+  @media screen and (max-width: 734px) {
+    .all-movie-poster{
+     width: 100%;
+      }
+  }
+
   
