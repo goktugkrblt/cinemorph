@@ -1,0 +1,54 @@
+.upcoming-movie-poster{
+    width: 200px;
+}
+
+
+
+  
+.upcoming-film-content{
+    margin-top: 75px;
+}
+
+.upcoming-movie-list{
+    display: flex;
+    column-gap: 20px;
+    overflow-y: scroll;
+    scroll-behavior: auto;
+}
+
+.upcoming-film-title{
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+}
+
+.upcoming-movie-details{
+    text-align: center;
+    color: #000;
+    margin-top: 15px;
+    height: 70px;
+}
+
+.upcoming-movie-title{
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.upcoming-movie-release-date{
+    font-size: 14px;
+    color: #a7a4a4;
+}
+
+.upcoming-movie-list::-webkit-scrollbar {
+    display: none; /* Kaydırma çubuğunu gizle */
+  }
+
+
+.upcoming-movie-poster{
+    cursor: pointer;
+    border-radius: 8px;
+}

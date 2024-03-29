@@ -1,0 +1,46 @@
+.movie-slider{
+position: relative;
+
+}
+.movie-poster {
+    width: 1220px;
+    height: auto;
+    max-height: 600px; 
+    object-fit: cover; 
+    border-radius: 8px;
+
+  }
+
+
+
+  .slider-film-content{
+    max-width: 1220px;
+    width: 100%;
+    padding: 30px;
+ border-radius: 0 0 8px 8px;
+ position: absolute;
+ bottom: 10px;
+  }
+
+  .movie-id{
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .view-details{
+    color: #fff;
+    border: 1px solid #fff;
+    outline: none;
+    background: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    transition: background-color 0.4s ease;
+    cursor: pointer;
+  }
+
+
+  .view-details:hover{
+    background-color: #fff;
+    color: #000;
+  }

@@ -1,0 +1,95 @@
+
+
+
+.all-film-film-content{
+    margin-bottom: 200px;
+  }
+  
+.all-film-film-content{
+    margin-top: 75px;
+}
+
+.all-film-movie-list{
+    display: flex;
+    column-gap: 20px;
+    overflow-y: scroll;
+    scroll-behavior: auto;
+}
+
+.all-films-title{
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 30px;
+    display: flex;
+    column-gap: 4px;
+    align-items: center;
+}
+
+.all-film-movie-details{
+    text-align: center;
+    color: #000;
+    margin-top: 15px;
+    height: 70px;
+}
+
+.all-movie-title{
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.all-movie-release-date{
+    font-size: 14px;
+    color: #a7a4a4;
+}
+
+.all-film-movie-list::-webkit-scrollbar {
+    display: none; /* Kaydırma çubuğunu gizle */
+  }
+
+
+.all-movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    row-gap: 50px;
+  }
+
+  
+  .all-movie-poster{
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+
+  .all-movie-details{
+    height: 50px;
+  }
+
+  .load-more-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 75px;
+  }
+
+  .load-more-button{
+    outline: none;
+    border: 1px solid #000;
+    background: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+  }
+
+  .load-more-button:hover{
+    background-color: #000;
+    color: #fff;
+    border: none;
+  }
+
+  

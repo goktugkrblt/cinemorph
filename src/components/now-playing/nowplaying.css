@@ -1,0 +1,56 @@
+.now-playing-movie-poster{
+    width: 200px;
+}
+
+
+.now-playing-film-content{
+    margin-bottom: 75px;
+  }
+  
+.now-playing-film-content{
+    margin-top: 75px;
+}
+
+.now-playing-movie-list{
+    display: flex;
+    column-gap: 20px;
+    overflow-y: scroll;
+    scroll-behavior: auto;
+}
+
+.now-playing-film-title{
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 30px;
+    display: flex;
+    column-gap: 4px;
+    align-items: center;
+}
+
+.now-playing-movie-details{
+    text-align: center;
+    color: #000;
+    margin-top: 15px;
+    height: 70px;
+}
+
+.now-playing-movie-title{
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.now-playing-movie-release-date{
+    font-size: 14px;
+    color: #a7a4a4;
+}
+
+.now-playing-movie-list::-webkit-scrollbar {
+    display: none; /* Kaydırma çubuğunu gizle */
+  }
+
+
+.now-playing-movie-poster{
+    cursor: pointer;
+    border-radius: 8px;
+}

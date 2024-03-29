@@ -1,0 +1,29 @@
+.film-section-container{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: #000;
+    border-radius: 8px;
+}
+
+.film-section-container-movie-poster{
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.film-section-movie{
+    display: flex;
+    column-gap: 60px;
+    align-items: center;
+    padding: 70px;
+}
+
+.film-section-container-content p{
+    color: #fff;
+    margin-top: 20px;
+}
+
+.film-section-movie-id{
+    color: #fff;
+    font-weight: 400;
+}

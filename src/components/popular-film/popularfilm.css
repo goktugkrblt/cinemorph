@@ -1,0 +1,53 @@
+.popular-movie-poster{
+    width: 200px;
+}
+
+  
+.popular-film-content{
+    margin-top: 75px;
+}
+
+.popular-movie-list{
+    display: flex;
+    column-gap: 20px;
+    overflow-y: scroll;
+    scroll-behavior: auto;
+}
+
+.popular-film-title{
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+}
+
+.popular-movie-details{
+    text-align: left;
+    color: #000;
+    margin-top: 15px;
+    height: 70px;
+}
+
+.popular-movie-title{
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.popular-movie-release-date{
+    font-size: 14px;
+    color: #a7a4a4;
+}
+
+.popular-movie-list::-webkit-scrollbar {
+    display: none; /* Kaydırma çubuğunu gizle */
+  }
+
+
+.popular-movie-poster{
+    cursor: pointer;
+    border-radius: 8px;
+}

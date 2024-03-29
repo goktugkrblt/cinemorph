@@ -1,0 +1,18 @@
+.built-by {
+    bottom: 20px;
+    color: #19191a;
+    font-size: 12px;
+    font-weight: 300;
+    position: absolute;
+    right: 20px;
+}
+
+.footer{
+    margin-top: 250px;
+}
+
+.built-by a {
+    color: #19191a;
+    text-decoration: none;
+    transition: color .5s ease;
+}
