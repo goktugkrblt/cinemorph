@@ -94,3 +94,18 @@
     padding-right: 15px;
   }
 }
+
+@media screen and (max-width: 734px) {
+  .modal-content-top {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+  .modal-open-content{
+    padding: 30px;
+    padding-bottom: 100px;
+  }
+
+  .trailer-video{
+    height: 100%;
+  }
+}
