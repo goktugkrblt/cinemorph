@@ -16,3 +16,9 @@
     text-decoration: none;
     transition: color .5s ease;
 }
+
+@media screen and (max-width: 734px) {
+    .footer {
+    margin-top: 100px;
+    }
+  }
