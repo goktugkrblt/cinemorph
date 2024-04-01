@@ -9,6 +9,7 @@
 .navbar_right-content {
   display: flex;
   column-gap: 20px;
+  align-items: center;
 }
 
 .navbar_left-content_logo {
@@ -25,8 +26,7 @@
 }
 
 .navbar_search-content {
-  flex-basis: 50%;
-  position: relative;
+  cursor: pointer;
 }
 
 .search-bar {
@@ -43,11 +43,6 @@
   outline: none;
 }
 
-.search-icon {
-  position: absolute;
-  right: 13px;
-  top: 2px;
-}
 
 
 .search-results {
@@ -57,8 +52,9 @@
   top: 150px;
   left: 50%;
   transform: translate(-50%);
-  width: 100%;
+  width: 100vw;
   overflow: scroll;
+  height: 100vh;
 }
 
 .search-results .movies {
