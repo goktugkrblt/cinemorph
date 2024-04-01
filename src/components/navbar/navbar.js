@@ -31,7 +31,6 @@ const Navbar = () => {
     getRandomMovies();
 
     return () => {
-      // Cleanup işlemi yapılabilir, şu an için gerek yok
     };
   }, []);
 
@@ -43,17 +42,30 @@ const Navbar = () => {
     }
   }, [isModalOpen, isSearchOpen]);
 
+  const handleClearButtonClick = () => {
+    setSearchQuery('');
+    setSearchResults([]);
+    const suggestionsDiv = document.querySelector('.search-suggestions');
+    if (suggestionsDiv) {
+      suggestionsDiv.style.display = 'block'; 
+    }
+  };
+
   const handleSearch = async (event) => {
     const query = event.target.value;
     setSearchQuery(query);
     if (query.trim() === '') {
       setSearchResults([]);
+      const suggestionsDiv = document.querySelector('.search-suggestions');
+      if (suggestionsDiv) {
+        suggestionsDiv.style.display = 'block';
+      }
       return;
     }
-
+  
     const apiKey = process.env.REACT_APP_TMDB_API_KEY;
     const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
-
+  
     try {
       const response = await fetch(searchUrl);
       const data = await response.json();
@@ -62,6 +74,12 @@ const Navbar = () => {
       console.error('Error searching movies:', error);
       setSearchResults([]);
     }
+  
+    const suggestionsDiv = document.querySelector('.search-suggestions');
+    if (suggestionsDiv) {
+      suggestionsDiv.style.display = 'none';
+    }
+
   };
 
   const openModal = (movie) => {
@@ -81,6 +99,13 @@ const Navbar = () => {
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
   };
+  const handleSearchSuggestionClick = (movieTitle) => {
+    setSearchQuery(movieTitle);
+    setSearchResults([]); 
+    handleSearch({ target: { value: movieTitle } }); 
+  };
+  
+  
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -118,15 +143,15 @@ const Navbar = () => {
               onChange={handleSearch}
             />
             {searchQuery.length > 0 && ( 
-              <div className="clear-button" onClick={() => { setSearchQuery(''); setSearchResults([]); }}>
-                <CloseSvg />
-              </div>
+           <div className="clear-button" onClick={() => { handleClearButtonClick(); }}>
+           <CloseSvg />
+         </div>
             )}
           </div>
           <div className='search-suggestions'>
             <h1 className='search-suggestions-title'>Search Suggestions</h1>
             {randomMovies.map((movie, index) => (
-              <div className='search-suggestions-link' key={index}>{movie}</div>
+             <div className='search-suggestions-link' key={index} onClick={() => handleSearchSuggestionClick(movie)}>{movie}</div>
             ))}
           </div>
           <div className="movies">
