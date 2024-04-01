@@ -22,7 +22,15 @@ const Navbar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // State to manage whether search is open or not
+  const [isSearchOpen, setIsSearchOpen] = useState(false); 
+
+  useEffect(() => {
+    if (isModalOpen || isSearchOpen) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }, [isModalOpen, isSearchOpen]);
 
   const handleSearch = async (event) => {
     const query = event.target.value;
@@ -93,7 +101,7 @@ const Navbar = () => {
           </svg>
         </div>
       </div>
-      {isSearchOpen && ( // Conditionally render search results if search is open
+      {isSearchOpen && ( 
         <div className="search-results">
           <input
             className='search-bar'
