@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
 import LogoSvg from '../assets/logo';
+import CloseSvg from '../assets/close';
 import MovieModal from '../movieModal';
+
 
 const searchMovies = async (query) => {
   const apiKey = process.env.REACT_APP_TMDB_API_KEY;
@@ -103,6 +105,8 @@ const Navbar = () => {
       </div>
       {isSearchOpen && ( 
         <div className="search-results">
+          <div className='search-content'>
+
           <input
             className='search-bar'
             type="text"
@@ -110,12 +114,18 @@ const Navbar = () => {
             value={searchQuery}
             onChange={handleSearch}
           />
+          {searchQuery.length > 0 && (
+            <div className="clear-button" onClick={() => setSearchQuery('')}><CloseSvg /></div>
+          )}
+               </div>
           <div className="movies">
-            {searchResults.map(movie => (
-              <div className="movie" key={movie.id} onClick={() => openModal(movie)}>
-                <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-              </div>
-            ))}
+          {searchResults.map(movie => (
+            <div className="movie" key={movie.id} onClick={() => openModal(movie)}>
+              <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
+              <p className='search-result-movie-title'>{movie.title}</p>
+            </div>
+          ))}
+            
           </div>
         </div>
       )}

@@ -31,13 +31,11 @@
 
 .search-bar {
   background: none;
-  padding: 6px 20px;
   border: none;
   color: #000;
-  width: 100%;
   border-bottom: 1px solid #000;
   font-size: 48px;
-  margin-bottom: 75px;
+
 }
 
 .search-bar:focus {
@@ -45,7 +43,9 @@
   outline: none;
 }
 
-
+.search-content{
+  margin-bottom: 75px;
+}
 
 .search-results {
   position: fixed;
@@ -57,19 +57,29 @@
   width: 100vw;
   overflow: scroll;
   height: 100vh;
-  padding: 50px;
+  max-width: 1220px;
 }
 
 .search-results .movies {
   display: flex;
   column-gap: 20px;
+  margin-bottom: 150px;
 }
 
 .search-results .movies .movie img {
-  width: 150px;
+  width: 200px;
   height: auto;
+  border-radius: 8px;
+
 }
 
+.search-result-movie-title{
+  font-weight: 500;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #000;
+    line-height: 22px;
+}
 .search-results .movies .movie {
   cursor: pointer;
 }
