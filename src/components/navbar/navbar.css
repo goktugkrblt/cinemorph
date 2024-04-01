@@ -33,9 +33,16 @@
   background: none;
   border: none;
   color: #000;
-  border-bottom: 1px solid #000;
-  font-size: 48px;
+  font-size: 90px;
+  width: 60%;
+  line-height: 130px;
+  border-bottom: 1px solid #757576;
+  font-weight: 500;
+  letter-spacing: -.8px;
+}
 
+.search-bar::placeholder {
+  color: #524f4f;
 }
 
 .search-bar:focus {
@@ -43,8 +50,10 @@
   outline: none;
 }
 
-.search-content{
+.search-content {
   margin-bottom: 75px;
+  display: flex;
+  align-items: center;
 }
 
 .search-results {
@@ -58,6 +67,7 @@
   overflow: scroll;
   height: 100vh;
   max-width: 1220px;
+  padding-left: 60px;
 }
 
 .search-results .movies {
@@ -73,13 +83,14 @@
 
 }
 
-.search-result-movie-title{
+.search-result-movie-title {
   font-weight: 500;
-    font-size: 16px;
-    margin-top: 10px;
-    color: #000;
-    line-height: 22px;
+  font-size: 16px;
+  margin-top: 10px;
+  color: #000;
+  line-height: 22px;
 }
+
 .search-results .movies .movie {
   cursor: pointer;
 }
@@ -104,6 +115,28 @@
   }
 }
 
-.modal-open{
+.modal-open {
   overflow: hidden;
+}
+
+.clear-button {
+  cursor: pointer;
+}
+
+.search-suggestions-title {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.search-suggestions-link {
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 16px;
+  color: #524f4f;
+}
+
+.search-suggestions-link:hover {
+  color: #5f5c5c;
 }
