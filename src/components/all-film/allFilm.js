@@ -109,13 +109,15 @@ function AllFilms() {
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={`${movie.title} Poster`}
             />
-            <div className='all-movie-details'> 
+             <div className="overlay-movie"></div>
+             <div className='all-movie-details'> 
               <h3 className='all-movie-title'>{`${movie.title}`}</h3>
               <p className='all-movie-release-date'>{formatDate(movie.release_date)}</p>
-            </div>        
+            </div>  
           </div>
         ))}
       </div>
+      
       {isModalOpen && selectedMovie && (
         <MovieModal movie={selectedMovie} onClose={closeModal} />
       )}
