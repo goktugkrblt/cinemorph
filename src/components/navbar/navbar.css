@@ -27,6 +27,15 @@
 
 .navbar_search-content {
   cursor: pointer;
+  background-color: #000;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  margin-top: -4px;
 }
 
 .search-bar {
