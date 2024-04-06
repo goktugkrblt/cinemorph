@@ -75,6 +75,20 @@
   align-items: center;
 }
 
+@media screen and (max-width: 734px) {
+  .search-content {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 734px) {
+ .search-suggestions {
+    margin-bottom: 40px;
+  }
+
+}
+
+
 .search-results {
   position: fixed;
   z-index: 9999;
