@@ -50,6 +50,16 @@
   letter-spacing: -.8px;
 }
 
+@media screen and (max-width: 734px) {
+  .search-bar {
+    width: 100%;
+    font-size: 34px;
+    line-height: 60px;
+  }
+
+}
+
+
 .search-bar::placeholder {
   color: #524f4f;
 }
@@ -73,16 +83,27 @@
   left: 50%;
   transform: translate(-50%);
   width: 100vw;
-  overflow: scroll;
   height: 100vh;
   max-width: 1220px;
   padding-left: 60px;
+  overflow-x: scroll;
+}
+
+
+@media screen and (max-width: 734px) {
+  .search-results {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 100px;
+  }
+
 }
 
 .search-results .movies {
   display: flex;
   column-gap: 20px;
   margin-bottom: 150px;
+  overflow: scroll;
 }
 
 .search-results .movies .movie img {
