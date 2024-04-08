@@ -97,8 +97,11 @@
   }
 
   .movie{
-    position: relative;
     display: inline-block;
+  }
+
+  .image-content{
+    position: relative;
   }
 
   .overlay-movie {
@@ -115,6 +118,7 @@
     opacity: 0; 
     transition: opacity 0.3s ease;
     cursor: pointer;
+    border-radius: 8px;
   }
   
   .movie:hover .overlay-movie {
