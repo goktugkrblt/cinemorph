@@ -89,11 +89,14 @@ function TopRatedFilm() {
       <div className="top-rated-movie-list">
         {movies.map(movie => (
           <div key={movie.id} className="movie" onClick={() => openModal(movie)}>
+            <div className='image-content'>
             <img
               className="top-rated-movie-poster"
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={`${movie.title} Poster`}
             />
+            <div className="overlay-movie"></div>
+            </div>
             <div className='top-rated-movie-details'> 
               <h3 className='top-rated-movie-title'>{`${movie.title}`}</h3>
               <p className='top-rated-movie-release-date'>{formatDate(movie.release_date)}</p>

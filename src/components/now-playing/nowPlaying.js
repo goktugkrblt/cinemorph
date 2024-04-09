@@ -89,11 +89,14 @@ function NowPlaying() {
       <div className="now-playing-movie-list">
         {movies.map(movie => (
           <div key={movie.id} className="movie" onClick={() => openModal(movie)}>
+            <div className='image-content'>
             <img
               className="now-playing-movie-poster"
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={`${movie.title} Poster`}
             />
+             <div className="overlay-movie"></div>
+            </div>
             <div className='now-playing-movie-details'> 
               <h3 className='now-playing-movie-title'>{`${movie.title}`}</h3>
               <p className='now-playing-movie-release-date'>{formatDate(movie.release_date)}</p>

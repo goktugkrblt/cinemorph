@@ -26,7 +26,7 @@
 }
 
 .all-film-movie-details{
-    text-align: center;
+    text-align: left;
     color: #000;
     margin-top: 15px;
     height: 70px;
@@ -100,27 +100,3 @@
     display: inline-block;
   }
 
-  .image-content{
-    position: relative;
-  }
-
-  .overlay-movie {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 4px);
-    background-color: rgba(0, 0, 0, 0.5); 
-    color: white;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-    opacity: 0; 
-    transition: opacity 0.3s ease;
-    cursor: pointer;
-    border-radius: 8px;
-  }
-  
-  .movie:hover .overlay-movie {
-    opacity: 1;
-  }
