@@ -185,3 +185,7 @@
 .search-suggestions-link:hover {
   color: #5f5c5c;
 }
+
+.navbar_left-content_logo{
+  cursor: pointer;
+}

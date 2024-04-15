@@ -104,12 +104,14 @@ const Navbar = () => {
     setSearchResults([]); 
     handleSearch({ target: { value: movieTitle } }); 
   };
-  
-  
 
+  const goToHomePage = () => {
+    window.location.href = '/'; // Burada '/' yerine anasayfanın URL'sini belirtin.
+  };
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className='navbar_left-content'>
+      <div className='navbar_left-content' onClick={goToHomePage}> {/* Burada onClick olayı ekliyoruz */}
         <div className='navbar_left-content_logo'>
           <LogoSvg />
           <h1 className='logo-text'>Cine<br/>morph</h1>
