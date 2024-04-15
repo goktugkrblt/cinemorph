@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './slider.css';
+import MovieModal from '../movieModal'; // MovieModal'ı import etmeyi unutmayın
 
 function Slider() {
   const [movie, setMovie] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modalın açık/kapalı durumunu saklayan state
   const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
-  const desiredMovieTitle = "Dune: Part Two"; 
+  const desiredMovieTitle = "Baghead"; 
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -25,6 +27,14 @@ function Slider() {
     fetchMovie();
   }, [API_KEY, desiredMovieTitle]);
 
+  const handleViewDetails = () => {
+    setIsModalOpen(true); // Modal'ı açmak için isModalOpen state'ini true yaparız
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false); // Modal'ı kapatmak için isModalOpen state'ini false yaparız
+  };
+
   return (
     <div className="slider-container">
       {movie && (
@@ -36,9 +46,13 @@ function Slider() {
           />
           <div className='slider-film-content'> 
             <h1 className='movie-id'>{`${movie.title}`}</h1>
-            <button className='view-details'>View Details</button>
+            <button className='view-details' onClick={handleViewDetails}>View Details</button>
           </div>        
         </div>
+      )}
+      {/* Modal'ı açmak için isModalOpen true olduğunda MovieModal componentini render ederiz */}
+      {isModalOpen && (
+        <MovieModal movie={movie} onClose={handleCloseModal} />
       )}
     </div>
   );
