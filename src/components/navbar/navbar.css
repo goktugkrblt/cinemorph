@@ -144,6 +144,10 @@
   display: none;
 }
 
+.search-results .movies::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 1080px) {
   .App {
     padding-left: 30px;
