@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './slider.css';
-import MovieModal from '../movieModal'; // MovieModal'ı import etmeyi unutmayın
+import MovieModal from '../movieModal'; 
 
 function Slider() {
   const [movie, setMovie] = useState({});
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modalın açık/kapalı durumunu saklayan state
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
   const desiredMovieTitle = "Baghead"; 
 
@@ -27,12 +27,26 @@ function Slider() {
     fetchMovie();
   }, [API_KEY, desiredMovieTitle]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsModalOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const handleViewDetails = () => {
-    setIsModalOpen(true); // Modal'ı açmak için isModalOpen state'ini true yaparız
+    setIsModalOpen(true); 
   };
 
   const handleCloseModal = () => {
-    setIsModalOpen(false); // Modal'ı kapatmak için isModalOpen state'ini false yaparız
+    setIsModalOpen(false);
   };
 
   return (
@@ -50,7 +64,6 @@ function Slider() {
           </div>        
         </div>
       )}
-      {/* Modal'ı açmak için isModalOpen true olduğunda MovieModal componentini render ederiz */}
       {isModalOpen && (
         <MovieModal movie={movie} onClose={handleCloseModal} />
       )}
