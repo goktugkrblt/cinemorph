@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './navbar.css';
 import LogoSvg from '../assets/logo';
 import CloseSvg from '../assets/close';
@@ -29,8 +29,9 @@ const Navbar = () => {
     };
 
     getRandomMovies();
-
+    
     return () => {
+      document.removeEventListener('keydown', handleEscapeKeyPress);
     };
   }, []);
 
@@ -40,14 +41,25 @@ const Navbar = () => {
     } else {
       document.body.classList.remove('modal-open');
     }
+    if (isModalOpen || isSearchOpen) {
+      document.addEventListener('keydown', handleEscapeKeyPress);
+    } else {
+      document.removeEventListener('keydown', handleEscapeKeyPress);
+    }
   }, [isModalOpen, isSearchOpen]);
+
+  const handleEscapeKeyPress = useCallback((event) => {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  }, []);
 
   const handleClearButtonClick = () => {
     setSearchQuery('');
     setSearchResults([]);
     const suggestionsDiv = document.querySelector('.search-suggestions');
     if (suggestionsDiv) {
-      suggestionsDiv.style.display = 'block'; 
+      suggestionsDiv.style.display = 'block';
     }
   };
 
@@ -62,10 +74,10 @@ const Navbar = () => {
       }
       return;
     }
-  
+
     const apiKey = process.env.REACT_APP_TMDB_API_KEY;
     const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
-  
+
     try {
       const response = await fetch(searchUrl);
       const data = await response.json();
@@ -74,12 +86,11 @@ const Navbar = () => {
       console.error('Error searching movies:', error);
       setSearchResults([]);
     }
-  
+
     const suggestionsDiv = document.querySelector('.search-suggestions');
     if (suggestionsDiv) {
       suggestionsDiv.style.display = 'none';
     }
-
   };
 
   const openModal = (movie) => {
@@ -99,25 +110,26 @@ const Navbar = () => {
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
   };
+
   const handleSearchSuggestionClick = (movieTitle) => {
     setSearchQuery(movieTitle);
-    setSearchResults([]); 
-    handleSearch({ target: { value: movieTitle } }); 
+    setSearchResults([]);
+    handleSearch({ target: { value: movieTitle } });
   };
 
   const goToHomePage = () => {
-    window.location.href = '/'; 
+    window.location.href = '/';
   };
-  
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className='navbar_left-content' onClick={goToHomePage}> 
+      <div className='navbar_left-content' onClick={goToHomePage}>
         <div className='navbar_left-content_logo'>
           <LogoSvg />
           <h1 className='logo-text'>Cine<br/>morph</h1>
         </div>
       </div>
-    
+
       <div className='navbar_right-content'>
         <div className='navbar_search-content' onClick={toggleSearch}>
           <svg className='search-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="20px" height="20px">
@@ -134,9 +146,9 @@ const Navbar = () => {
           </svg>
         </div>
       </div>
-      {isSearchOpen && ( 
+      {isSearchOpen && (
         <div className="search-results">
-         <div className='search-content'>
+          <div className='search-content'>
             <input
               className='search-bar'
               type="text"
@@ -144,16 +156,16 @@ const Navbar = () => {
               value={searchQuery}
               onChange={handleSearch}
             />
-            {searchQuery.length > 0 && ( 
-           <div className="clear-button" onClick={() => { handleClearButtonClick(); }}>
-           <CloseSvg />
-         </div>
+            {searchQuery.length > 0 && (
+              <div className="clear-button" onClick={() => { handleClearButtonClick(); }}>
+                <CloseSvg />
+              </div>
             )}
           </div>
           <div className='search-suggestions'>
             <h1 className='search-suggestions-title'>Search Suggestions</h1>
             {randomMovies.map((movie, index) => (
-             <div className='search-suggestions-link' key={index} onClick={() => handleSearchSuggestionClick(movie)}>{movie}</div>
+              <div className='search-suggestions-link' key={index} onClick={() => handleSearchSuggestionClick(movie)}>{movie}</div>
             ))}
           </div>
           <div className="movies">
