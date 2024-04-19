@@ -38,7 +38,7 @@ function FilmSection2() {
             <h1 className='film-section-movie-id'>{`${movie.title}`}</h1>
             <p><strong>Overview:</strong> {movie.overview}</p>
             <p><strong>Vote Average:</strong> {roundedVoteAverage}</p>
-            <p><strong>Vote Count:</strong> {movie.vote_count}</p>
+            {movie.vote_count && <p><strong>Vote Count:</strong> {movie.vote_count.toLocaleString()}</p>}
           </div>    
           <img
             className="film-section-container-movie-poster"

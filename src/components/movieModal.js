@@ -60,7 +60,7 @@ function MovieModal({ movie, onClose }) {
                   <p><strong>Release Date:</strong> {formatDate(movie.release_date)}</p>
                   <p><strong>Overview:</strong> {movie.overview}</p>
                   <p><strong>Vote Average:</strong> {roundedVoteAverage}</p>
-                  <p><strong>Vote Count:</strong> {movie.vote_count}</p>
+                  {movie.vote_count && <p><strong>Vote Count:</strong> {movie.vote_count.toLocaleString()}</p>}
             
                 </div>
             </div>     
