@@ -119,13 +119,15 @@ const Navbar = () => {
     handleSearch({ target: { value: movieTitle } });
   };
 
-  const goToHomePage = () => {
-    window.location.href = '/';
+  const handleLogoClick = () => {
+    if (isSearchOpen) {
+      toggleSearch();
+    }
   };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className='navbar_left-content' onClick={goToHomePage}>
+      <div className='navbar_left-content' onClick={handleLogoClick}>
         <div className='navbar_left-content_logo'>
           <LogoSvg />
           <h1 className='logo-text'>Cine<br/>morph</h1>
