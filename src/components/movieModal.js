@@ -9,6 +9,7 @@ function formatDate(dateString) {
 
 function MovieModal({ movie, onClose }) {
   const [videoKey, setVideoKey] = useState(null);
+  const [roundedVoteAverage, setRoundedVoteAverage] = useState(null);
 
   const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
@@ -29,7 +30,13 @@ function MovieModal({ movie, onClose }) {
       }
     };
 
+    const roundVoteAverage = () => {
+      const roundedAverage = Math.round(movie.vote_average);
+      setRoundedVoteAverage(roundedAverage);
+    };
+
     fetchVideoKey();
+    roundVoteAverage();
   }, [movie, API_KEY]);
 
   return (
@@ -52,7 +59,7 @@ function MovieModal({ movie, onClose }) {
                 <h2>{movie.title}</h2>
                   <p><strong>Release Date:</strong> {formatDate(movie.release_date)}</p>
                   <p><strong>Overview:</strong> {movie.overview}</p>
-                  <p><strong>Vote Average:</strong> {movie.vote_average}</p>
+                  <p><strong>Vote Average:</strong> {roundedVoteAverage}</p>
                   <p><strong>Vote Count:</strong> {movie.vote_count}</p>
             
                 </div>

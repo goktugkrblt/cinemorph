@@ -6,6 +6,7 @@ function FilmSection1() {
   const [movie, setMovie] = useState({});
   const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
   const desiredMovieTitle = "Harry Potter and the Deathly Hallows: Part 2"; 
+  const [roundedVoteAverage, setRoundedVoteAverage] = useState(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -14,6 +15,10 @@ function FilmSection1() {
         const foundMovie = response.data.results.find(movie => movie.title === desiredMovieTitle);
         if (foundMovie) {
           setMovie(foundMovie);
+          if (foundMovie.vote_average) { 
+            const roundedAverage = Math.round(foundMovie.vote_average);
+            setRoundedVoteAverage(roundedAverage);
+          }
         } else {
           console.error('Movie not found');
         }
@@ -37,7 +42,7 @@ function FilmSection1() {
           <div className='film-section-container-content'> 
             <h1 className='film-section-movie-id'>{`${movie.title}`}</h1>
             <p><strong>Overview:</strong> {movie.overview}</p>
-            <p><strong>Vote Average:</strong> {movie.vote_average}</p>
+            {roundedVoteAverage && <p><strong>Vote Average:</strong> {roundedVoteAverage}</p>}
             <p><strong>Vote Count:</strong> {movie.vote_count}</p>
           </div>    
               
