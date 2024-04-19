@@ -126,7 +126,7 @@
   padding: 20px;
   box-sizing: border-box;
   opacity: 0; 
-  transition: opacity 0.3s ease;
+  transition: opacity 0.6s ease;
   cursor: pointer;
   border-radius: 8px;
 }
@@ -134,3 +134,4 @@
 .movie:hover .overlay-movie {
   opacity: 1;
 }
+
