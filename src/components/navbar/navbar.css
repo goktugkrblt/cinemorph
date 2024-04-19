@@ -19,6 +19,10 @@
   align-items: center;
 }
 
+.navbar_left-content{
+  height: 50px;
+}
+
 .navbar_left-content_logo {
   display: flex;
   align-items: center;
@@ -195,6 +199,13 @@
 
 .navbar_left-content_logo{
   cursor: pointer;
+}
+
+@media screen and (max-width: 1068px) {
+  .navbar_left-content_logo {
+    padding-left: 15px;
+  }
+
 }
 
 .search-suggestions-link:hover{
