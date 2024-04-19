@@ -175,7 +175,7 @@
 .search-suggestions-title {
   font-size: 20px;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: #000;
 }
 
@@ -192,4 +192,8 @@
 
 .navbar_left-content_logo{
   cursor: pointer;
+}
+
+.search-suggestions-link:hover{
+  color: #a09797;
 }
