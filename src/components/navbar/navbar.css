@@ -6,6 +6,14 @@
 
 }
 
+@media screen and (max-width: 1080px) {
+  .navbar {
+    padding: 30px 0;
+  }
+
+}
+
+
 .navbar_right-content {
   display: flex;
   column-gap: 5px;
@@ -145,15 +153,6 @@
 .search-results .movies::-webkit-scrollbar {
   display: none;
 }
-
-@media screen and (max-width: 1080px) {
-  .App {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-}
-
 
 @media screen and (max-width: 1080px) {
   .movie-poster {
