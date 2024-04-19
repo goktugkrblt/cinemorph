@@ -8,7 +8,7 @@
 
 .navbar_right-content {
   display: flex;
-  column-gap: 10px;
+  column-gap: 5px;
   align-items: center;
 }
 
@@ -27,9 +27,6 @@
 
 .navbar_search-content {
   cursor: pointer;
-  background-color: #000;
-  width: 40px;
-  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
