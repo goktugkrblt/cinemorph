@@ -1,6 +1,5 @@
 import './App.css';
 import './main.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
 import Slider from './components/slider/slider';
 import PopularFilm from './components/popular-film/popularFilm';
@@ -26,8 +25,7 @@ function App() {
         <FilmSection2 />
         <NowPlaying />
         <AllFilms />
-        <Footer />
-    
+        <Footer />  
     </div>
   );
 }
