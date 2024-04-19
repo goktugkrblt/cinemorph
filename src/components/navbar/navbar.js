@@ -134,10 +134,10 @@ const Navbar = () => {
 
       <div className='navbar_right-content'>
         <div className='navbar_search-content' onClick={toggleSearch}>
-            <SearchSvg width="25" height="25" />
+            <SearchSvg width="24" height="24" stroke= "#000" strokeWidth="2px" />
         </div>
         <div className='navbar_right-content_user_logo'>
-            <UserSvg width="50" height="50" />
+            <UserSvg width="50" height="50"  stroke="#000" strokeWidth="4px"/>
         </div>
       </div>
       {isSearchOpen && (
