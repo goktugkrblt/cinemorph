@@ -13,7 +13,6 @@
 
 }
 
-
 .navbar_right-content {
   display: flex;
   column-gap: 5px;
@@ -108,6 +107,13 @@
   padding-left: 60px;
   overflow-x: scroll;
   padding-bottom: 100px;
+}
+
+@media screen and (max-width: 1068px) {
+  .search-results {
+    top: 110px;
+  }
+
 }
 
 
