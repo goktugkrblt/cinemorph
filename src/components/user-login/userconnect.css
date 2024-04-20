@@ -1,22 +1,18 @@
-.user-modal{
-    background-color: white;
-    z-index: 2;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 100px;
-    left: 0;
+.user-login-page{
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
 
-  }
-
-  .user-modal-w{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-  }
-
+@media screen and (max-width: 734px) {
+  .user-login-page {
+    width: 100%;
+    padding: 0 25px;
+   }
+ 
+ }
+  
+  
   .tabs{
     display: flex;
     align-items: center;
