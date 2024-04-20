@@ -5,4 +5,50 @@
     height: 100vh;
     position: fixed;
     top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tabs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tabs button {
+    background-color: #ccc;
+    color: #000;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px 20px;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+
+  .tabs button.active {
+    color: #fff;
+    background-color: #000;
+    border: none;
+    outline: none;
+  }
+
+
+  .close-btn {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .close-btn:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
   }
