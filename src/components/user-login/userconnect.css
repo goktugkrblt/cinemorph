@@ -1,0 +1,8 @@
+.user-modal{
+    background-color: white;
+    z-index: 999999;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+  }

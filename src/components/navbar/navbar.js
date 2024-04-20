@@ -5,6 +5,7 @@ import CloseSvg from '../assets/close';
 import MovieModal from '../movieModal';
 import SearchSvg from '../assets/search';
 import UserSvg from '../assets/user';
+import UserLogin from '../user-login/UserConnect';
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -13,6 +14,7 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [randomMovies, setRandomMovies] = useState([]);
+  const [isUserLoginOpen, setIsUserLoginOpen] = useState(false);
 
   useEffect(() => {
     const getRandomMovies = async () => {
@@ -125,6 +127,11 @@ const Navbar = () => {
     }
   };
 
+  const openUserLoginModal = () => {
+    setIsUserLoginOpen(true);
+    console.log("test");
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className='navbar_left-content' onClick={handleLogoClick}>
@@ -138,10 +145,13 @@ const Navbar = () => {
         <div className='navbar_search-content' onClick={toggleSearch}>
             <SearchSvg width="24" height="24" stroke= "#000" strokeWidth="2px" />
         </div>
-        <div className='navbar_right-content_user_logo'>
-            <UserSvg width="50" height="50"  stroke="#000" strokeWidth="4px"/>
+        <div className='navbar_right-content_user_logo' onClick={openUserLoginModal}>
+            <UserSvg width="50" height="50"  stroke="#000" strokeWidth="4px" />
         </div>
       </div>
+
+      {isUserLoginOpen && <UserLogin onClose={() => setIsUserLoginOpen(false)} />}
+
       {isSearchOpen && (
         <div className="search-results">
           <div className='search-content'>
@@ -174,6 +184,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
       {selectedMovie && (
         <MovieModal movie={selectedMovie} onClose={handleModalClose} />
       )}
