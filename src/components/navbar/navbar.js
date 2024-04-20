@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './navbar.css';
 import LogoSvg from '../assets/logo';
 import CloseSvg from '../assets/close';
@@ -7,6 +8,7 @@ import SearchSvg from '../assets/search';
 import UserSvg from '../assets/user';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -120,12 +122,18 @@ const Navbar = () => {
   };
 
   const handleLogoClick = () => {
+    navigate('/');
     if (isSearchOpen) {
       toggleSearch();
     }
   };
 
-
+  const handleUserIconClick = () => {
+    navigate('/user');
+    if (isSearchOpen) {
+      toggleSearch();
+    }
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -140,11 +148,10 @@ const Navbar = () => {
         <div className='navbar_search-content' onClick={toggleSearch}>
             <SearchSvg width="24" height="24" stroke= "#000" strokeWidth="2px" />
         </div>
-        <div className='navbar_right-content_user_logo'>
+        <div className='navbar_right-content_user_logo' onClick={handleUserIconClick}>
             <UserSvg width="50" height="50"  stroke="#000" strokeWidth="4px" />
         </div>
       </div>
-
 
       {isSearchOpen && (
         <div className="search-results">
