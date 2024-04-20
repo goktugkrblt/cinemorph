@@ -211,3 +211,7 @@
 .search-suggestions-link:hover{
   color: #a09797;
 }
+
+.navbar_right-content_user_logo{
+  cursor: pointer;
+}

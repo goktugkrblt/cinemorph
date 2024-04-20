@@ -4,10 +4,17 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 100px;
+    left: 0;
+
+  }
+
+  .user-modal-w{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
   }
 
   .tabs{
@@ -18,13 +25,12 @@
 
   .tabs button {
     background-color: #ccc;
-    color: #000;
+    color: #fff;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 8px 20px;
+    padding: 8px 30px;
     font-size: 14px;
-    color: #333;
     transition: all 0.3s ease;
   }
 
@@ -33,6 +39,14 @@
     background-color: #000;
     border: none;
     outline: none;
+  }
+
+  .loginBtn{
+    border-radius: 8px 0 0 8px;
+  }
+
+  .signupBtn {
+    border-radius: 0 8px 8px 0;
   }
 
 
@@ -51,4 +65,36 @@
     background-color: #007bff;
     border-color: #007bff;
     color: #fff;
+  }
+
+  form{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  form input{
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #333;
+  }
+
+  form button{
+    padding: 10px 30px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #000;
+    color:  #fff;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    outline: none;
+  }
+
+  form button:hover{
+    background-color: #ccc;
+    color: #000;
+    border: none;
+    outline: none;
   }
