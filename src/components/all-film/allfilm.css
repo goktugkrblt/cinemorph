@@ -100,3 +100,45 @@
     display: inline-block;
   }
 
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #09f;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.spinner-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  animation: fadeIn 3s ease-in;
+}
+
+.all-films-content {
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+}
+
+.all-films-content.show {
+  opacity: 1;
+}

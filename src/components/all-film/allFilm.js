@@ -26,13 +26,8 @@ function AllFilms() {
       setIsLoading(true);
       try {
         const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`);
-        if (currentPage !== page) {
-          setMovies(prevMovies => {
-            const newMovies = [...prevMovies, ...response.data.results.slice(prevMovies.length, prevMovies.length + filmCount)];
-            return newMovies;
-          });
-          setCurrentPage(page);
-        }
+        setMovies(prevMovies => [...prevMovies, ...response.data.results]);
+        setCurrentPage(page);
         setIsLoading(false);
       } catch (error) {
         console.error('Error fetching movies:', error);
@@ -41,7 +36,7 @@ function AllFilms() {
     };
 
     fetchMovies();
-  }, [API_KEY, page, filmCount, currentPage]);
+  }, [API_KEY, page]);
 
   useEffect(() => {
     const fetchVideoKey = async () => {
@@ -94,9 +89,32 @@ function AllFilms() {
     };
   }, [isModalOpen]);
 
-  const loadMore = () => {
-    setPage(prevPage => prevPage + 1);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
+      if (bottom && !isLoading) {
+        setPage(prevPage => prevPage + 1);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isLoading]);
+
+  useEffect(() => {
+    const content = document.querySelector('.all-films-content');
+    const showContent = () => {
+      if (content) {
+        const contentTop = content.getBoundingClientRect().top;
+        const screenBottom = window.innerHeight;
+        if (contentTop < screenBottom) {
+          content.classList.add('show');
+        }
+      }
+    };
+    window.addEventListener('scroll', showContent);
+    return () => window.removeEventListener('scroll', showContent);
+  }, []);
 
   return (
     <div className="all-films-content">
@@ -105,14 +123,14 @@ function AllFilms() {
         {movies.map(movie => (
           <div key={movie.id} className="movie" onClick={() => openModal(movie)}>
             <div className='image-content'>
-            <img
-              className="all-movie-poster"
-              src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
-              alt={`${movie.title} Poster`}
-            />
-             <div className="overlay-movie"></div>
+              <img
+                className="all-movie-poster"
+                src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
+                alt={`${movie.title} Poster`}
+              />
+              <div className="overlay-movie"></div>
             </div>        
-             <div className='all-movie-details'> 
+            <div className='all-movie-details'> 
               <h3 className='all-movie-title'>{`${movie.title}`}</h3>
               <p className='all-movie-release-date'>{formatDate(movie.release_date)}</p>
             </div>  
@@ -123,13 +141,7 @@ function AllFilms() {
       {isModalOpen && selectedMovie && (
         <MovieModal movie={selectedMovie} onClose={closeModal} />
       )}
-      <div className="load-more-container">
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <button className="load-more-button" onClick={loadMore}>Load More</button>
-        )}
-      </div>
+      {isLoading && <div className="spinner-container"><div className="spinner"></div></div>}
     </div>
   );
 }
