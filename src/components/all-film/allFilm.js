@@ -27,8 +27,11 @@ function AllFilms() {
       try {
         const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`);
         const filteredMovies = response.data.results.filter(movie => movie.poster_path); 
-        setMovies(filteredMovies);
-        setMovies(prevMovies => [...prevMovies, ...response.data.results]);
+        if (page > 1) {
+          setMovies(prevMovies => [...prevMovies, ...filteredMovies]);
+        } else {
+          setMovies(filteredMovies);
+        }
         setCurrentPage(page);
         setIsLoading(false);
       } catch (error) {
@@ -36,9 +39,10 @@ function AllFilms() {
         setIsLoading(false);
       }
     };
-
+  
     fetchMovies();
   }, [API_KEY, page]);
+  
 
   useEffect(() => {
     const fetchVideoKey = async () => {
@@ -95,13 +99,21 @@ function AllFilms() {
     const handleScroll = () => {
       const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight;
       if (bottom && !isLoading) {
-        setPage(prevPage => prevPage + 1);
+        setIsLoading(true);
+        setTimeout(() => {
+          setPage(prevPage => prevPage + 1);
+          setIsLoading(false);
+        }, 500); 
       }
     };
-
+  
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isLoading]);
+  
+  
+  
+  
 
   useEffect(() => {
     const content = document.querySelector('.all-films-content');
