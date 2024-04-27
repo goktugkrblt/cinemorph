@@ -130,6 +130,10 @@ function AllFilms() {
     return () => window.removeEventListener('scroll', showContent);
   }, []);
 
+  useEffect(() => {
+    console.log("Movies:", movies);
+  }, [movies]);
+
   return (
     <div className="all-films-content">
       <h2 className='all-films-title'><FilmSvg />All Films</h2>
