@@ -70,6 +70,7 @@ const Navbar = () => {
   const handleSearch = async (event) => {
     const query = event.target.value;
     setSearchQuery(query);
+    
     if (query.trim() === '') {
       setSearchResults([]);
       const suggestionsDiv = document.querySelector('.search-suggestions');
@@ -78,24 +79,31 @@ const Navbar = () => {
       }
       return;
     }
-
+  
     const apiKey = process.env.REACT_APP_TMDB_API_KEY;
     const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
-
+  
     try {
       const response = await fetch(searchUrl);
       const data = await response.json();
-      setSearchResults(data.results);
+      const filteredResults = data.results.filter(movie => {
+        // Küçük harfe çevirip film ismi içinde arama yap
+        const movieTitle = movie.title.toLowerCase();
+        const searchQueryLower = query.toLowerCase();
+        return movieTitle.includes(searchQueryLower);
+      });
+      setSearchResults(filteredResults);
     } catch (error) {
       console.error('Error searching movies:', error);
       setSearchResults([]);
     }
-
+  
     const suggestionsDiv = document.querySelector('.search-suggestions');
     if (suggestionsDiv) {
       suggestionsDiv.style.display = 'none';
     }
   };
+  
 
   const openModal = (movie) => {
     setSelectedMovie(movie);
