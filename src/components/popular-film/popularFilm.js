@@ -21,6 +21,8 @@ function PopularFilm() {
     const fetchPopularMovies = async () => {
       try {
         const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`);
+        const filteredMovies = response.data.results.filter(movie => movie.poster_path); 
+        setMovies(filteredMovies);
         setMovies(response.data.results);
       } catch (error) {
         console.error('Error fetching popular movies:', error);

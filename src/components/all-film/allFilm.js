@@ -26,6 +26,8 @@ function AllFilms() {
       setIsLoading(true);
       try {
         const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`);
+        const filteredMovies = response.data.results.filter(movie => movie.poster_path); 
+        setMovies(filteredMovies);
         setMovies(prevMovies => [...prevMovies, ...response.data.results]);
         setCurrentPage(page);
         setIsLoading(false);
