@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './userconnect.css';
 
-const UserLogin = ({ onClose }) => {
+const UserLogin = () => {
+  const navigate = useNavigate();
+
   const [activeTab, setActiveTab] = useState('login');
   const [loginData, setLoginData] = useState({
     username: '',
@@ -41,6 +44,7 @@ const UserLogin = ({ onClose }) => {
       const storedUserData = JSON.parse(localStorage.getItem('signupData'));
       if (storedUserData && storedUserData.username === loginData.username && storedUserData.password === loginData.password) {
         setLoggedInUser(loginData);
+        navigate('/');
       } else {
         setLoginErrors({ general: "Invalid username or password" });
       }
@@ -64,6 +68,7 @@ const UserLogin = ({ onClose }) => {
     if (Object.keys(errors).length === 0) {
       localStorage.setItem('signupData', JSON.stringify(signupData));
       setLoggedInUser(signupData);
+      navigate('/');
     }
   };
 
