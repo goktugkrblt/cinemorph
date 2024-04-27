@@ -103,7 +103,7 @@ function AllFilms() {
         setTimeout(() => {
           setPage(prevPage => prevPage + 1);
           setIsLoading(false);
-        }, 500); 
+        }, 700); 
       }
     };
   
