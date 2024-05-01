@@ -86,7 +86,6 @@ function TopRatedFilm() {
 
   return (
     <div className="top-rated-film-content">
-      <h2 className='top-rated-film-title'><FilmSvg />Top Rated</h2>
       <div className="top-rated-movie-list">
         {movies.map(movie => (
           <div key={movie.id} className="movie" onClick={() => openModal(movie)}>
@@ -96,7 +95,6 @@ function TopRatedFilm() {
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={`${movie.title} Poster`}
             />
-            <div className="overlay-movie"></div>
             </div>
             <div className='top-rated-movie-details'> 
               <h3 className='top-rated-movie-title'>{`${movie.title}`}</h3>

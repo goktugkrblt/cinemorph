@@ -4,7 +4,7 @@ import './main.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
 import PopularFilm from './components/popular-film/popularFilm';
-// import TopRatedFilm from './components/top-rated/topRated';
+import TopRatedFilm from './components/top-rated/topRated';
 // import FilmSection1 from './components/film-section1/filmSection1';
 import UpComingFilm from './components/upcoming/upComing';
 // import FilmSection2 from './components/film-section2/filmSection2';
@@ -31,6 +31,10 @@ function App() {
                 <Route
                   path="/popular"
                   element={<PopularFilm />}
+                />
+                   <Route
+                  path="/updated"
+                  element={<TopRatedFilm />}
                 />
               
           </Routes>

@@ -15,6 +15,7 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [randomMovies, setRandomMovies] = useState([]);
+  const [activeMenu, setActiveMenu] = useState('new');
 
   useEffect(() => {
     const getRandomMovies = async () => {
@@ -132,29 +133,29 @@ const Navbar = () => {
   const handleUserIconClick = () => {
     navigate('/user');
     setIsSearchOpen(false);
-
-    
   };
 
   const handleMenuLogoClick = () => {
-    console.log("test")
     navigate('/');
     setIsSearchOpen(false);
-    
-  };
-
-  const handleMenuPopularClick = () => {
-    console.log("test")
-    navigate('/popular');
-    setIsSearchOpen(false);
-    
   };
 
   const handleMenuHomeClick = () => {
-    console.log("test")
+    setActiveMenu('new');
     navigate('/');
     setIsSearchOpen(false);
-    
+  };
+  
+  const handleMenuPopularClick = () => {
+    setActiveMenu('popular');
+    navigate('/popular');
+    setIsSearchOpen(false);
+  };
+
+  const handleMenuUpdatedClick = () => {
+    setActiveMenu('updated');
+    navigate('/updated');
+    setIsSearchOpen(false);
   };
 
 
@@ -166,9 +167,9 @@ const Navbar = () => {
         </div>
         <div className='navbar_left-content_menu'>
           <ul>
-            <li onClick={handleMenuHomeClick}><a >New</a></li>
-            <li onClick={handleMenuPopularClick}>Popular</li>
-            <li>Updated</li>
+            <li className={activeMenu === 'new' ? 'active' : ''} onClick={handleMenuHomeClick}><a >New</a></li>
+            <li className={activeMenu === 'popular' ? 'active' : ''} onClick={handleMenuPopularClick}>Popular</li>
+            <li className={activeMenu === 'updated' ? 'active' : ''} onClick={handleMenuUpdatedClick}>Updated</li>
           </ul>
         </div>
       </div>

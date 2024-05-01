@@ -2,17 +2,15 @@
     width: 200px;
 }
 
-
-
 .top-rated-film-content{
-    margin-top: 75px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 .top-rated-movie-list{
-    display: flex;
-    column-gap: 20px;
-    overflow-y: scroll;
-    scroll-behavior: auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .top-rated-film-title{
