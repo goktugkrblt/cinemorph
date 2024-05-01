@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './upcoming.css';
 import MovieModal from '../movieModal';
 import FilmSvg from '../assets/film';
 
@@ -86,20 +85,20 @@ function UpComingFilm() {
   }, [isModalOpen]);
 
   return (
-    <div className="upcoming-film-content">
-      <div className="upcoming-movie-list">
+    <div className="film-content">
+      <div className="movie-list">
         {movies.map(movie => (
           <div key={movie.id} className="movie" onClick={() => openModal(movie)}>
             <div className='image-content'>
             <img
-              className="upcoming-movie-poster"
+              className="movie-poster"
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={`${movie.title} Poster`}
             />
             </div>
-            <div className='upcoming-movie-details'> 
-              <h3 className='upcoming-movie-title'>{`${movie.title}`}</h3>
-              <p className='upcoming-movie-release-date'>{formatDate(movie.release_date)}</p>
+            <div className='movie-details'> 
+              <h3 className='movie-title'>{`${movie.title}`}</h3>
+              <p className='movie-release-date'>{formatDate(movie.release_date)}</p>
             </div>        
           </div>
         ))}

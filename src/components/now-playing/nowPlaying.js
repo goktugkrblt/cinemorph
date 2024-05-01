@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './nowplaying.css';
 import MovieModal from '../movieModal';
 import FilmSvg from '../assets/film';
 
@@ -84,20 +83,20 @@ function NowPlaying() {
   }, [isModalOpen]);
 
   return (
-    <div className="now-playing-film-content">
-      <div className="now-playing-movie-list">
+    <div className="film-content">
+      <div className="movie-list">
         {movies.map(movie => (
           <div key={movie.id} className="movie" onClick={() => openModal(movie)}>
             <div className='image-content'>
             <img
-              className="now-playing-movie-poster"
+              className="movie-poster"
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={`${movie.title} Poster`}
             />
             </div>
-            <div className='now-playing-movie-details'> 
-              <h3 className='now-playing-movie-title'>{`${movie.title}`}</h3>
-              <p className='now-playing-movie-release-date'>{formatDate(movie.release_date)}</p>
+            <div className='movie-details'> 
+              <h3 className='movie-title'>{`${movie.title}`}</h3>
+              <p className='movie-release-date'>{formatDate(movie.release_date)}</p>
             </div>        
           </div>
         ))}

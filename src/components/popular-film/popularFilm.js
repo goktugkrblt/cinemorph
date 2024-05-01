@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './popularfilm.css';
 import MovieModal from '../movieModal'; 
 import FilmSvg from '../assets/film';
 import { useNavigate } from 'react-router-dom';
@@ -89,21 +88,21 @@ const PopularFilm = () => {
   }, [isModalOpen]);
 
   return (
-    <div className="popular-film-content">
-      <div className="popular-movie-list">
+    <div className="film-content">
+      <div className="movie-list">
         {movies.map(movie => (
           <div key={movie.id} className="movie" onClick={() => openModal(movie)}>
             <div className='image-content'>
             <img
-              className="popular-movie-poster"
+              className="movie-poster"
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={`${movie.title} Poster`}
             />
 
             </div>
-            <div className='popular-movie-details'> 
-              <h3 className='popular-movie-title'>{`${movie.title}`}</h3>
-              <p className='popular-movie-release-date'>{formatDate(movie.release_date)}</p>
+            <div className='movie-details'> 
+              <h3 className='movie-title'>{`${movie.title}`}</h3>
+              <p className='movie-release-date'>{formatDate(movie.release_date)}</p>
             </div>        
           </div>
         ))}
