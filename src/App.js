@@ -8,7 +8,7 @@ import TopRatedFilm from './components/top-rated/topRated';
 // import FilmSection1 from './components/film-section1/filmSection1';
 import UpComingFilm from './components/upcoming/upComing';
 // import FilmSection2 from './components/film-section2/filmSection2';
-// import NowPlaying from './components/now-playing/nowPlaying';
+import NowPlaying from './components/now-playing/nowPlaying';
 // import AllFilms from './components/all-film/allFilm';
 import Footer from './components/footer/footer';
 import UserLogin from './components/user-login/UserConnect';
@@ -36,15 +36,13 @@ function App() {
                   path="/updated"
                   element={<TopRatedFilm />}
                 />
+                    
+                   <Route
+                  path="/now-playing"
+                  element={<NowPlaying />}
+                />
               
           </Routes>
-       
-          {/* <PopularFilm />
-          <FilmSection1 />
-          <TopRatedFilm />
-          <FilmSection2 />
-          <NowPlaying />
-          <AllFilms /> */}
           <Footer />
     </div>
     </BrowserRouter>

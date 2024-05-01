@@ -2,20 +2,10 @@
     width: 200px;
 }
 
-
-.now-playing-film-content{
-    margin-bottom: 75px;
-  }
-  
-.now-playing-film-content{
-    margin-top: 75px;
-}
-
 .now-playing-movie-list{
-    display: flex;
-    column-gap: 20px;
-    overflow-y: scroll;
-    scroll-behavior: auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .now-playing-film-title{

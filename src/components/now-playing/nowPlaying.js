@@ -85,7 +85,6 @@ function NowPlaying() {
 
   return (
     <div className="now-playing-film-content">
-      <h2 className='now-playing-film-title'><FilmSvg />Now Playing</h2>
       <div className="now-playing-movie-list">
         {movies.map(movie => (
           <div key={movie.id} className="movie" onClick={() => openModal(movie)}>
@@ -95,7 +94,6 @@ function NowPlaying() {
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={`${movie.title} Poster`}
             />
-             <div className="overlay-movie"></div>
             </div>
             <div className='now-playing-movie-details'> 
               <h3 className='now-playing-movie-title'>{`${movie.title}`}</h3>

@@ -152,9 +152,15 @@ const Navbar = () => {
     setIsSearchOpen(false);
   };
 
-  const handleMenuUpdatedClick = () => {
+  const handleMenuTopRatedClick = () => {
     setActiveMenu('updated');
     navigate('/updated');
+    setIsSearchOpen(false);
+  };
+
+  const handleMenuNowPlayingClick = () => {
+    setActiveMenu('now-playing');
+    navigate('/now-playing');
     setIsSearchOpen(false);
   };
 
@@ -169,7 +175,8 @@ const Navbar = () => {
           <ul>
             <li className={activeMenu === 'new' ? 'active' : ''} onClick={handleMenuHomeClick}><a >New</a></li>
             <li className={activeMenu === 'popular' ? 'active' : ''} onClick={handleMenuPopularClick}>Popular</li>
-            <li className={activeMenu === 'updated' ? 'active' : ''} onClick={handleMenuUpdatedClick}>Updated</li>
+            <li className={activeMenu === 'updated' ? 'active' : ''} onClick={handleMenuTopRatedClick}>Top Rated</li>
+            <li className={activeMenu === 'now-playing' ? 'active' : ''} onClick={handleMenuNowPlayingClick}>Now Playing</li>
           </ul>
         </div>
       </div>
