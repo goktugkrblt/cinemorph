@@ -227,8 +227,35 @@
   color: rgb(115 115 115);
 }
 
+.navbar_left-content_menu ul li a{
+  text-decoration: none;
+  color: rgb(115 115 115);
+  position: relative;
+}
+
+.navbar_left-content_menu ul li a:focus{
+  color: #000;
+}
+
+#root > div > nav > div.navbar_left-content > div.navbar_left-content_menu > ul > li:nth-child(1) > a::after{
+  content: "";
+  width: .25rem;
+  height: .25rem;
+  border-radius: 50%;
+  background-color: #000;
+  display: block;
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .navbar_left-content{
   display: flex;
   align-items: center;
   column-gap: 30px;
+}
+
+#root > div > nav > div.navbar_left-content > div.navbar_left-content_menu > ul > li:nth-child(1) > a{
+  color: #000;
 }

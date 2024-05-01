@@ -150,19 +150,19 @@ const Navbar = () => {
         </div>
         <div className='navbar_left-content_menu'>
           <ul>
-            <li>New</li>
-            <li>Popular</li>
-            <li>Updated</li>
+            <li><a href=''>New</a></li>
+            <li><a href=''>Popular</a></li>
+            <li><a href=''>Updated</a></li>
           </ul>
         </div>
       </div>
 
       <div className='navbar_right-content'>
         <div className='navbar_search-content' onClick={toggleSearch}>
-            <SearchSvg width="20" height="20" stroke= "rgb(115 115 115)" strokeWidth="2px" />
+            <SearchSvg width="20" height="20" stroke= "#000" strokeWidth="2px" />
         </div>
         <div className='navbar_right-content_user_logo' onClick={handleUserIconClick}>
-            <UserSvg width="45" height="45"  stroke="rgb(115 115 115)" strokeWidth="4px" />
+            <UserSvg width="45" height="45"  stroke="#000" strokeWidth="4px" />
         </div>
       </div>
 
