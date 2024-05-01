@@ -135,6 +135,7 @@
 .movie .image-content{
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .movie:hover{
@@ -236,4 +237,8 @@
 .movie-poster{
   cursor: pointer;
   border-radius: 8px;
+}
+
+.navbar_left-content_logo{
+  cursor: pointer;
 }

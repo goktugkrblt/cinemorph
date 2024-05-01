@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import SearchSvg from '../assets/search';
 import axios from 'axios';
-import SearchResults from './SearchResults';
+import MovieModal from '../movieModal'; 
+import { useNavigate } from 'react-router-dom';
+import FilmList from './SearchResults';
 
-function SearchMovies({ open }) {
+function formatDate(dateString) {
+  const options = { month: 'short', day: 'numeric', year: 'numeric' };
+  return new Date(dateString).toLocaleDateString('en-US', options);
+}
+
+const SearchMovies = ({ open }) => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
-
-  useEffect(() => {
-    if (open) {
-      // Bileşen açıldığında, input elementine odaklan
-      document.getElementById('searchInput').focus();
-    }
-  }, [open]);
 
   const fetchMovies = async () => {
     setIsLoading(true);
     try {
       const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchQuery}&include_adult=false`);
-      setSearchResults(response.data.results);
+      setSearchResults(response.data.results.filter(movie => movie.title.toLowerCase().includes(searchQuery.toLowerCase())));
       setIsLoading(false);
     } catch (error) {
       console.error('Error fetching movies:', error);
@@ -37,8 +36,19 @@ function SearchMovies({ open }) {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
+      event.preventDefault();
       fetchMovies();
     }
+  };
+
+  const openModal = (movie) => {
+    setSelectedMovie(movie);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedMovie(null);
+    setIsModalOpen(false);
   };
 
   return (
@@ -47,14 +57,16 @@ function SearchMovies({ open }) {
         id="searchInput"
         className='search-input'
         type="text"
-        placeholder="Search movies..."
+        placeholder="Search movies by title..."
         value={searchQuery}
         onChange={handleSearchInputChange}
         onKeyDown={handleKeyDown}
       />
-      <SearchSvg />
       {isLoading && <div>Loading...</div>}
-      <SearchResults searchResults={searchResults} />
+      <FilmList movies={searchResults} openModal={openModal} /> 
+      {isModalOpen && selectedMovie && (
+        <MovieModal movie={selectedMovie} onClose={closeModal} />
+      )}
     </div>
   );
 }

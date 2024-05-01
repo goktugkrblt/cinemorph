@@ -8,7 +8,7 @@ import TopRatedFilm from './components/top-rated/topRated';
 import UpComingFilm from './components/upcoming/upComing';
 import NowPlaying from './components/now-playing/nowPlaying';
 import Footer from './components/footer/footer';
-import SearchResults from './components/search/SearchResults';
+import SearchResults from './components/search/SearchResults'; // 
 
 function App() {
   return (
@@ -37,10 +37,7 @@ function App() {
             element={<NowPlaying />}
           />
 
-          <Route
-            path="/search"
-            element={<SearchResults />}
-          />
+          <Route path="/search" element={<SearchResults />} />
         </Routes>
         
         <Footer />

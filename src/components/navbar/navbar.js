@@ -22,12 +22,14 @@ const Navbar = () => {
 
   const handleMenuLogoClick = () => {
     navigate('/');
-    setActiveMenu('new');
+    setActiveMenu('/');
+    setSearchQuery(''); 
   };
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
     navigate(`${menu}`);
+    setSearchQuery(''); 
   };
 
   const handleSearchInputChange = (event) => {
@@ -37,6 +39,7 @@ const Navbar = () => {
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+      setActiveMenu(''); 
     }
   };
 
