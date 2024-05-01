@@ -147,16 +147,22 @@ const Navbar = () => {
       <div className='navbar_left-content' onClick={handleLogoClick}>
         <div className='navbar_left-content_logo'>
           <LogoSvg />
-          <h1 className='logo-text'>Cine<br/>morph</h1>
+        </div>
+        <div className='navbar_left-content_menu'>
+          <ul>
+            <li>New</li>
+            <li>Popular</li>
+            <li>Updated</li>
+          </ul>
         </div>
       </div>
 
       <div className='navbar_right-content'>
         <div className='navbar_search-content' onClick={toggleSearch}>
-            <SearchSvg width="24" height="24" stroke= "#000" strokeWidth="2px" />
+            <SearchSvg width="20" height="20" stroke= "rgb(115 115 115)" strokeWidth="2px" />
         </div>
         <div className='navbar_right-content_user_logo' onClick={handleUserIconClick}>
-            <UserSvg width="50" height="50"  stroke="#000" strokeWidth="4px" />
+            <UserSvg width="45" height="45"  stroke="rgb(115 115 115)" strokeWidth="4px" />
         </div>
       </div>
 

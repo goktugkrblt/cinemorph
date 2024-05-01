@@ -1,14 +1,28 @@
 .built-by {
-    bottom: 20px;
-    color: #19191a;
+    color: #888;
     font-size: 12px;
     font-weight: 300;
-    position: absolute;
-    right: 20px;
 }
 
 .footer{
-    margin-top: 150px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.tmdb{
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-weight: 300;
+
 }
 
 .built-by a {

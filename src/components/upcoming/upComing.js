@@ -87,7 +87,6 @@ function UpComingFilm() {
 
   return (
     <div className="upcoming-film-content">
-      <h2 className='upcoming-film-title'><FilmSvg />Coming Soon</h2>
       <div className="upcoming-movie-list">
         {movies.map(movie => (
           <div key={movie.id} className="movie" onClick={() => openModal(movie)}>
@@ -97,7 +96,6 @@ function UpComingFilm() {
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={`${movie.title} Poster`}
             />
-              <div className="overlay-movie"></div>
             </div>
             <div className='upcoming-movie-details'> 
               <h3 className='upcoming-movie-title'>{`${movie.title}`}</h3>
