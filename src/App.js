@@ -8,13 +8,13 @@ import TopRatedFilm from './components/top-rated/topRated';
 import UpComingFilm from './components/upcoming/upComing';
 import NowPlaying from './components/now-playing/nowPlaying';
 import Footer from './components/footer/footer';
-import SearchMovies from './components/search/search';
+import SearchResults from './components/search/SearchResults';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar onLogoClick={() => {}} />
+        <Navbar />
   
         <Routes>
           <Route
@@ -39,7 +39,7 @@ function App() {
 
           <Route
             path="/search"
-            element={<SearchMovies />}
+            element={<SearchResults />}
           />
         </Routes>
         

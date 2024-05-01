@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchSvg from '../assets/search';
 import axios from 'axios';
+import SearchResults from './SearchResults';
 
 function SearchMovies({ open }) {
   const navigate = useNavigate();
@@ -53,14 +54,7 @@ function SearchMovies({ open }) {
       />
       <SearchSvg />
       {isLoading && <div>Loading...</div>}
-      <div>
-        {searchResults.map(movie => (
-          <div key={movie.id}>
-            <h3>{movie.title}</h3>
-            <p>{movie.overview}</p>
-          </div>
-        ))}
-      </div>
+      <SearchResults searchResults={searchResults} />
     </div>
   );
 }
