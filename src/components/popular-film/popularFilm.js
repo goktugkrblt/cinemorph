@@ -3,13 +3,16 @@ import axios from 'axios';
 import './popularfilm.css';
 import MovieModal from '../movieModal'; 
 import FilmSvg from '../assets/film';
+import { useNavigate } from 'react-router-dom';
+
 
 function formatDate(dateString) {
   const options = { month: 'short', day: 'numeric', year: 'numeric' };
   return new Date(dateString).toLocaleDateString('en-US', options);
 }
 
-function PopularFilm() {
+const PopularFilm = () => {
+  const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -87,7 +90,6 @@ function PopularFilm() {
 
   return (
     <div className="popular-film-content">
-      <h2 className='popular-film-title'><FilmSvg />What's Popular</h2>
       <div className="popular-movie-list">
         {movies.map(movie => (
           <div key={movie.id} className="movie" onClick={() => openModal(movie)}>
@@ -97,7 +99,7 @@ function PopularFilm() {
               src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
               alt={`${movie.title} Poster`}
             />
-            <div className="overlay-movie"></div>
+
             </div>
             <div className='popular-movie-details'> 
               <h3 className='popular-movie-title'>{`${movie.title}`}</h3>

@@ -149,6 +149,11 @@
   cursor: pointer;
 }
 
+.movie .image-content{
+  display: flex;
+  justify-content: center;
+}
+
 .movie:hover{
   background-color: #e5e5e566;
 }

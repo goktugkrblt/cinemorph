@@ -119,7 +119,7 @@ const Navbar = () => {
   };
 
   const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen);
+    setIsSearchOpen(true);
   };
 
   const handleSearchSuggestionClick = (movieTitle) => {
@@ -128,31 +128,47 @@ const Navbar = () => {
     handleSearch({ target: { value: movieTitle } });
   };
 
-  const handleLogoClick = () => {
-    navigate('/');
-    if (isSearchOpen) {
-      toggleSearch();
-    }
-  };
 
   const handleUserIconClick = () => {
     navigate('/user');
-    if (isSearchOpen) {
-      toggleSearch();
-    }
+    setIsSearchOpen(false);
+
+    
   };
+
+  const handleMenuLogoClick = () => {
+    console.log("test")
+    navigate('/');
+    setIsSearchOpen(false);
+    
+  };
+
+  const handleMenuPopularClick = () => {
+    console.log("test")
+    navigate('/popular');
+    setIsSearchOpen(false);
+    
+  };
+
+  const handleMenuHomeClick = () => {
+    console.log("test")
+    navigate('/');
+    setIsSearchOpen(false);
+    
+  };
+
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className='navbar_left-content' onClick={handleLogoClick}>
-        <div className='navbar_left-content_logo'>
+      <div className='navbar_left-content'>
+        <div className='navbar_left-content_logo' onClick={handleMenuLogoClick}>
           <LogoSvg />
         </div>
         <div className='navbar_left-content_menu'>
           <ul>
-            <li><a href=''>New</a></li>
-            <li><a href=''>Popular</a></li>
-            <li><a href=''>Updated</a></li>
+            <li onClick={handleMenuHomeClick}><a >New</a></li>
+            <li onClick={handleMenuPopularClick}>Popular</li>
+            <li>Updated</li>
           </ul>
         </div>
       </div>
