@@ -8,7 +8,7 @@ const SearchResults = () => {
   const [selectedMovie, setSelectedMovie] = useState(null); 
   const location = useLocation();
   const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
-
+  
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const query = queryParams.get('q');
@@ -42,19 +42,21 @@ const SearchResults = () => {
       <div className="film-content">
         <div className="movie-list">
           {searchResults.map(movie => (
-            <div key={movie.id} className="movie" onClick={() => handleOpenModal(movie)}>
-              <div className='image-content'>
-                <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+            movie.poster_path && (
+              <div key={movie.id} className="movie" onClick={() => handleOpenModal(movie)}>
+                <div className='image-content'>
+                  <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                </div>
+                <div className='movie-details'> 
+                  <h3 className='movie-title'>{`${movie.title}`}</h3>
+                  <p className='movie-release-date'>{formatDate(movie.release_date)}</p>
+                </div>   
               </div>
-              <div className='movie-details'> 
-                <h3 className='movie-title'>{`${movie.title}`}</h3>
-                <p className='movie-release-date'>{formatDate(movie.release_date)}</p>
-              </div>   
-            </div>
+            )
           ))}
         </div>
       </div>
-      {selectedMovie && <MovieModal movie={selectedMovie} onClose={handleCloseModal} />} {/* Render modal if selectedMovie is not null */}
+      {selectedMovie && <MovieModal movie={selectedMovie} onClose={handleCloseModal} />}
     </div>
   );
 };
