@@ -9,7 +9,7 @@ import SearchMovies from '../search/search';
 const Navbar = () => {
   const navigate = useNavigate();
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [activeMenu, setActiveMenu] = useState('new');
+  const [activeMenu, setActiveMenu] = useState('/');
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
@@ -65,7 +65,7 @@ const Navbar = () => {
           <ul>
             <li className={activeMenu === '/' ? 'active' : ''} onClick={() => handleMenuClick('/')}>New</li>
             <li className={activeMenu === 'popular' ? 'active' : ''} onClick={() => handleMenuClick('popular')}>Popular</li>
-            <li className={activeMenu === 'updated' ? 'active' : ''} onClick={() => handleMenuClick('updated')}>Best</li>
+            <li className={activeMenu === 'best' ? 'active' : ''} onClick={() => handleMenuClick('best')}>Best</li>
             <li className={activeMenu === 'now-playing' ? 'active' : ''} onClick={() => handleMenuClick('now-playing')}>Now</li>
           </ul>
         </div>
