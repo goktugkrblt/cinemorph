@@ -65,8 +65,8 @@ const Navbar = () => {
           <ul>
             <li className={activeMenu === '/' ? 'active' : ''} onClick={() => handleMenuClick('/')}>New</li>
             <li className={activeMenu === 'popular' ? 'active' : ''} onClick={() => handleMenuClick('popular')}>Popular</li>
-            <li className={activeMenu === 'updated' ? 'active' : ''} onClick={() => handleMenuClick('updated')}>Top Rated</li>
-            <li className={activeMenu === 'now-playing' ? 'active' : ''} onClick={() => handleMenuClick('now-playing')}>Now Playing</li>
+            <li className={activeMenu === 'updated' ? 'active' : ''} onClick={() => handleMenuClick('updated')}>Best</li>
+            <li className={activeMenu === 'now-playing' ? 'active' : ''} onClick={() => handleMenuClick('now-playing')}>Now</li>
           </ul>
         </div>
       </div>

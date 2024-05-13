@@ -167,7 +167,7 @@
 }
 
 .movie-poster{
-  width: 200px;
+  width: 100%;
 }
 
 
@@ -199,6 +199,11 @@
   }
   .movie-poster{
       width: 100%;
+  }
+  .navbar_left-content{
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 10px;
   }
 
 }
@@ -242,3 +247,4 @@
 .navbar_left-content_logo{
   cursor: pointer;
 }
+
