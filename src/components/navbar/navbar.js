@@ -13,12 +13,11 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    if (window.location.pathname === '/') {
-      setActiveMenu('/');
-    } else {
-      setActiveMenu(window.location.pathname.slice(1));
-    }
+    const path = window.location.hash.slice(2) || '/';
+    setActiveMenu(path);
   }, []);
+  
+  
 
   const handleMenuLogoClick = () => {
     navigate('/');
