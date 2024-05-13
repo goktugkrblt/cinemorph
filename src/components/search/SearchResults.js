@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import MovieModal from '../movieModal'; // Import your MovieModal component
+import MovieModal from '../movieModal'; 
 
 const SearchResults = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null); // State to store selected movie
+  const [selectedMovie, setSelectedMovie] = useState(null); 
   const location = useLocation();
   const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
@@ -23,7 +23,6 @@ const SearchResults = () => {
     }
   }, [location.search, API_KEY]);
 
-  // Function to handle opening modal and setting selected movie
   const handleOpenModal = (movie) => {
     setSelectedMovie(movie);
   };
@@ -34,7 +33,6 @@ const SearchResults = () => {
     return new Date(dateString).toLocaleDateString('en-US', options);
   }
   
-  // Function to handle closing modal
   const handleCloseModal = () => {
     setSelectedMovie(null);
   };

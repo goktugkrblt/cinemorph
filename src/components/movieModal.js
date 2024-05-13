@@ -37,7 +37,19 @@ function MovieModal({ movie, onClose }) {
 
     fetchVideoKey();
     roundVoteAverage();
-  }, [movie, API_KEY]);
+
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [movie, API_KEY, onClose]);
 
   return (
     <div className="modal-open-content">
