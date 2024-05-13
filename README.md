@@ -1,6 +1,6 @@
 # Cinemorph
 
-![cinemorph-app](https://raw.githubusercontent.com/goktugkrblt/stylos/main/public/app-readme.png)
+![cinemorph-app](https://raw.githubusercontent.com/goktugkrblt/stylos/main/public/app-cinemorph.png)
 
 Cinemorph is a movie and TV show search application developed using React and TMDB API. This application allows users to search for their favorite movies and TV shows, view their details, and add them to favorites.
 
