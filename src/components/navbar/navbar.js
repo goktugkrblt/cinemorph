@@ -58,7 +58,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className='navbar_left-content'>
         <div className='navbar_left-content_logo' onClick={handleMenuLogoClick}>
-          <LogoSvg />
+          <LogoSvg width="50px" height="auto"/>
         </div>
         <div className='navbar_left-content_menu'>
           <ul>

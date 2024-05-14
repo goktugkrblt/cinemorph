@@ -39,4 +39,10 @@
     .tmdb {
         column-gap: 4px;
     }
+    .footer-content{
+        flex-direction: column;
+        margin-top: 50px;
+        row-gap: 15px;
+        align-items: center;
+    }
   }
