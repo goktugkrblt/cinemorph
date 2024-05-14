@@ -55,14 +55,12 @@ function TopRatedFilm() {
   const openModal = (movie) => {
     setSelectedMovie(movie);
     setIsModalOpen(true);
-    document.getElementById('overlay').classList.add('active'); 
   };
   
   const closeModal = () => {
     setSelectedMovie(null);
     setIsModalOpen(false);
     setVideoKey(null); 
-    document.getElementById('overlay').classList.remove('active'); 
   };
   
   useEffect(() => {
