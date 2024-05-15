@@ -203,7 +203,7 @@
   .navbar_left-content{
     width: 100%;
     justify-content: space-between;
-    padding: 0 10px;
+    padding-right: 10px;
   }
 
 }
